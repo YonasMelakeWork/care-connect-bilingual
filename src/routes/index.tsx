@@ -6,6 +6,8 @@ import {
   Pill,
   ShoppingBasket,
   Users,
+  Phone,
+  Mail,
   MapPin,
   Languages,
   ShieldCheck,
