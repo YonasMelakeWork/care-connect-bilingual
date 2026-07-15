@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import heroImage from "@/assets/hero-care.jpg";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -229,13 +230,14 @@ function Nav({ t, lang, setLang }: { t: T; lang: Lang; setLang: (l: Lang) => voi
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
-        <a href="#top" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground">
-            <HeartHandshake className="h-4 w-4" />
-          </span>
-          <span className="font-serif text-lg font-bold tracking-tight">
-            Levando Care
-          </span>
+        <a href="#top" className="flex items-center">
+          <img
+            src={logoAsset.url}
+            alt="Levando Care"
+            width={160}
+            height={48}
+            className="h-10 w-auto object-contain"
+          />
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#services" className="transition-colors hover:text-primary">{t.navServices}</a>
@@ -255,7 +257,7 @@ function Nav({ t, lang, setLang }: { t: T; lang: Lang; setLang: (l: Lang) => voi
           </a>
           <a
             href="tel:+46264020897"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-[color:var(--navy-2)]"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-[color:var(--green-mid)]"
           >
             <Phone className="h-4 w-4" />
             <span className="hidden sm:inline">+46 26 40 20 897</span>
@@ -285,7 +287,7 @@ function Hero({ t }: { t: T }) {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-soft transition-all hover:bg-[color:var(--navy-2)] hover:shadow-lift"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-soft transition-all hover:bg-[color:var(--green-mid)] hover:shadow-lift"
             >
               {t.heroCta}
               <ArrowRight className="h-4 w-4" />
