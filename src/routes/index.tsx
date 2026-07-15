@@ -230,13 +230,14 @@ function Nav({ t, lang, setLang }: { t: T; lang: Lang; setLang: (l: Lang) => voi
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
-        <a href="#top" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground">
-            <HeartHandshake className="h-4 w-4" />
-          </span>
-          <span className="font-serif text-lg font-bold tracking-tight">
-            Levando Care
-          </span>
+        <a href="#top" className="flex items-center">
+          <img
+            src={logoAsset.url}
+            alt="Levando Care"
+            width={160}
+            height={48}
+            className="h-10 w-auto object-contain"
+          />
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#services" className="transition-colors hover:text-primary">{t.navServices}</a>
