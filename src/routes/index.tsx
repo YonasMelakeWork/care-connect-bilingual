@@ -6,13 +6,12 @@ import {
   Pill,
   ShoppingBasket,
   Users,
-  Phone,
-  Mail,
   MapPin,
   Languages,
   ShieldCheck,
   Clock,
   ArrowRight,
+  MessageSquareText,
 } from "lucide-react";
 import { useState } from "react";
 import heroImage from "@/assets/hero-care.jpg";
