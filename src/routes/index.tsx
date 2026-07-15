@@ -13,6 +13,7 @@ import {
   ShieldCheck,
   Clock,
   ArrowRight,
+  MessageSquareText,
 } from "lucide-react";
 import { useState } from "react";
 import heroImage from "@/assets/hero-care.jpg";
@@ -76,6 +77,7 @@ const content = {
     navAbout: "Om oss",
     navAreas: "Områden",
     navContact: "Kontakt",
+    contactButton: "Kontakta oss",
     call: "Ring",
     heroTag: "Hemtjänst · Gävle",
     heroTitle: "Hemtjänst där kvalitet möter omtanke.",
@@ -128,6 +130,7 @@ const content = {
     navAbout: "About",
     navAreas: "Areas",
     navContact: "Contact",
+    contactButton: "Contact us",
     call: "Call",
     heroTag: "Hemtjänst · Gävle",
     heroTitle: "Home care where quality meets compassion.",
@@ -248,20 +251,12 @@ function Nav({ t, lang, setLang }: { t: T; lang: Lang; setLang: (l: Lang) => voi
         <div className="flex items-center gap-3">
           <LangToggle lang={lang} setLang={setLang} />
           <a
-            href="mailto:info@levandocare.se"
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-muted"
-          >
-            <Mail className="h-4 w-4" />
-            <span className="hidden sm:inline">info@levandocare.se</span>
-            <span className="sm:hidden">{t.email}</span>
-          </a>
-          <a
-            href="tel:+46264020897"
+            href="#contact"
             className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-[color:var(--green-mid)]"
           >
-            <Phone className="h-4 w-4" />
-            <span className="hidden sm:inline">+46 26 40 20 897</span>
-            <span className="sm:hidden">{t.call}</span>
+            <MessageSquareText className="h-4 w-4" />
+            <span className="hidden sm:inline">{t.contactButton}</span>
+            <span className="sm:hidden">{t.navContact}</span>
           </a>
         </div>
       </div>
