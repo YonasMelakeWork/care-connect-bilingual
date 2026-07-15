@@ -130,6 +130,7 @@ const content = {
     navAbout: "About",
     navAreas: "Areas",
     navContact: "Contact",
+    contactButton: "Contact us",
     call: "Call",
     heroTag: "Hemtjänst · Gävle",
     heroTitle: "Home care where quality meets compassion.",
