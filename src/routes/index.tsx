@@ -77,6 +77,7 @@ const content = {
     navAbout: "Om oss",
     navAreas: "Områden",
     navContact: "Kontakt",
+    contactButton: "Kontakta oss",
     call: "Ring",
     heroTag: "Hemtjänst · Gävle",
     heroTitle: "Hemtjänst där kvalitet möter omtanke.",
