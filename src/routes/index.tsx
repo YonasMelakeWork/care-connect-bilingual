@@ -287,7 +287,7 @@ function Hero({ t }: { t: T }) {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-soft transition-all hover:bg-[color:var(--navy-2)] hover:shadow-lift"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-soft transition-all hover:bg-[color:var(--green-mid)] hover:shadow-lift"
             >
               {t.heroCta}
               <ArrowRight className="h-4 w-4" />
