@@ -257,7 +257,7 @@ function Nav({ t, lang, setLang }: { t: T; lang: Lang; setLang: (l: Lang) => voi
           </a>
           <a
             href="tel:+46264020897"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-[color:var(--navy-2)]"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-[color:var(--green-mid)]"
           >
             <Phone className="h-4 w-4" />
             <span className="hidden sm:inline">+46 26 40 20 897</span>
