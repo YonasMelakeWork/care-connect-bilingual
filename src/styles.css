@@ -30,38 +30,39 @@
   --font-serif: "Libre Baskerville", ui-serif, Georgia, serif;
   --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
 
-  --shadow-soft: 0 1px 2px oklch(0.2 0.06 240 / 0.06), 0 8px 24px oklch(0.2 0.06 240 / 0.08);
-  --shadow-lift: 0 2px 4px oklch(0.2 0.06 240 / 0.08), 0 20px 40px -12px oklch(0.2 0.06 240 / 0.18);
+  --shadow-soft: 0 1px 2px oklch(0.2 0.06 140 / 0.06), 0 8px 24px oklch(0.2 0.06 140 / 0.08);
+  --shadow-lift: 0 2px 4px oklch(0.2 0.06 140 / 0.08), 0 20px 40px -12px oklch(0.2 0.06 140 / 0.18);
 }
 
 :root {
   --radius: 0.5rem;
 
-  /* Ocean Deep palette */
-  --navy: oklch(0.24 0.06 251);         /* #0c2340 */
-  --navy-2: oklch(0.36 0.08 245);       /* #1a4a6e */
-  --teal: oklch(0.63 0.11 213);         /* #2d8a9e */
-  --teal-light: oklch(0.79 0.08 202);   /* #5cbdb9 */
+  /* Levando Care brand greens from the logo */
+  --green-dark: #208040;
+  --green-mid: #2a9d4d;
+  --green-light: #80c040;
+  --green-pale: #e8f5e9;
+  --green-cream: #f5faf6;
 
-  --background: oklch(0.99 0.005 220);
-  --foreground: oklch(0.22 0.05 251);
-  --surface: oklch(0.97 0.012 220);
-  --surface-foreground: oklch(0.24 0.06 251);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.24 0.06 251);
-  --primary: var(--navy);
-  --primary-foreground: oklch(0.98 0.005 220);
-  --secondary: var(--teal);
-  --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.95 0.012 220);
-  --muted-foreground: oklch(0.45 0.03 245);
-  --accent: var(--teal-light);
-  --accent-foreground: var(--navy);
+  --background: var(--green-cream);
+  --foreground: #1a2e1f;
+  --surface: #eef7f0;
+  --surface-foreground: var(--foreground);
+  --card: #ffffff;
+  --card-foreground: var(--foreground);
+  --primary: var(--green-dark);
+  --primary-foreground: #ffffff;
+  --secondary: var(--green-light);
+  --secondary-foreground: #1a2e1f;
+  --muted: var(--green-pale);
+  --muted-foreground: #4a6350;
+  --accent: var(--green-pale);
+  --accent-foreground: var(--green-dark);
   --destructive: oklch(0.58 0.22 27);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.9 0.015 230);
-  --input: oklch(0.9 0.015 230);
-  --ring: var(--teal);
+  --border: #d4e8d8;
+  --input: #d4e8d8;
+  --ring: var(--green-light);
 }
 
 @layer base {
@@ -84,6 +85,6 @@
     font-family: var(--font-serif);
     font-weight: 700;
     letter-spacing: -0.01em;
-    color: var(--navy);
+    color: var(--green-dark);
   }
 }
