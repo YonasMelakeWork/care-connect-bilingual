@@ -248,11 +248,10 @@ function Nav({ t, lang, setLang }: { t: T; lang: Lang; setLang: (l: Lang) => voi
           <a
             href="mailto:info@levandocare.se"
             className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-muted"
-            aria-label="E-post"
           >
             <Mail className="h-4 w-4" />
             <span className="hidden sm:inline">info@levandocare.se</span>
-            <span className="sm:hidden">E-post</span>
+            <span className="sm:hidden">{t.email}</span>
           </a>
           <a
             href="tel:+46264020897"
