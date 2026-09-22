@@ -78,6 +78,7 @@ const content = {
     navAbout: "Om oss",
     navAreas: "Områden",
     navJobs: "Jobba hos oss",
+    navFaq: "Vanliga frågor",
     navContact: "Kontakt",
     contactButton: "Kontakta oss",
     call: "Ring",
@@ -140,6 +141,35 @@ const content = {
     jobsApplyTitle: "Spontanansökan",
     jobsApplyBody: "Vi tar alltid emot spontansökningar. Skicka ditt CV och några rader om dig själv — vi hör av oss.",
     jobsApplyCta: "Skicka din ansökan",
+    faqEyebrow: "Vanliga frågor",
+    faqTitle: "Svar på det som många undrar.",
+    faqLead: "Hittar du inte svaret du söker? Ring oss eller skicka ett mejl — vi hjälper dig gärna.",
+    faqItems: [
+      {
+        q: "Hur gör jag för att få hemtjänst?",
+        a: "Hemtjänst beviljas via kommunens biståndsbedömning. Kontakta Gävle kommun för att ansöka, eller ring oss så går vi igenom stegen tillsammans och hjälper dig på vägen.",
+      },
+      {
+        q: "Vilka områden i Gävle täcker ni?",
+        a: "Vi finns i stadsdelar i hela Gävle, bland annat Andersberg–Stureborg, Bomhus–Järvsta, Brynäs, Centrala Gävle Norra, Stigslund och Sätra. Osäker på om vi täcker din adress? Ring oss och fråga.",
+      },
+      {
+        q: "Vad kostar det?",
+        a: "Avgiften för hemtjänst sätts enligt kommunens taxa och beror på hur mycket hjälp du beviljats. Hushållsnära tjänster kan också beställas privat — kontakta oss för prisuppgifter.",
+      },
+      {
+        q: "Vilka språk talar personalen?",
+        a: "Vårt team talar svenska och engelska, samt tigrinja och spanska — så att fler kan förstås på sitt eget språk.",
+      },
+      {
+        q: "Kan jag påverka vem som kommer och när?",
+        a: "Ja. Vi lägger upp din vårdplan tillsammans med dig och strävar efter regelbundna scheman med kända ansikten. Behoven förändras — då anpassar vi insatserna.",
+      },
+      {
+        q: "Arbetar ni enligt kollektivavtal?",
+        a: "Ja. Vi arbetar enligt kollektivavtal med utbildad personal och ett tydligt kvalitetsledningssystem — för din trygghet och våra medarbetares.",
+      },
+    ],
     contactEyebrow: "Kontakt",
     contactTitle: "Låt oss prata om den omsorg du behöver.",
     contactLead: "Ring, mejla eller kom förbi vårt kontor på Brynäsgatan. Vi tar oss tid att förstå din situation och svara på alla frågor — utan påtryckningar.",
@@ -156,6 +186,7 @@ const content = {
     navAbout: "About",
     navAreas: "Areas",
     navJobs: "Careers",
+    navFaq: "FAQ",
     navContact: "Contact",
     contactButton: "Contact us",
     call: "Call",
@@ -218,6 +249,35 @@ const content = {
     jobsApplyTitle: "Open application",
     jobsApplyBody: "We always welcome open applications. Send us your CV and a few lines about yourself — we'll be in touch.",
     jobsApplyCta: "Send your application",
+    faqEyebrow: "Common questions",
+    faqTitle: "Answers to what many people ask.",
+    faqLead: "Can't find the answer you're looking for? Call us or send an email — we're happy to help.",
+    faqItems: [
+      {
+        q: "How do I get home care?",
+        a: "Home care is granted through the municipality's needs assessment. Contact Gävle Municipality to apply, or call us and we'll walk you through the steps together.",
+      },
+      {
+        q: "Which areas of Gävle do you cover?",
+        a: "We serve neighbourhoods across Gävle, including Andersberg–Stureborg, Bomhus–Järvsta, Brynäs, Central Gävle North, Stigslund and Sätra. Not sure about your address? Give us a call.",
+      },
+      {
+        q: "What does it cost?",
+        a: "Home care fees are set by the municipal fee schedule and depend on the amount of help you've been granted. Household services can also be ordered privately — contact us for prices.",
+      },
+      {
+        q: "Which languages does your staff speak?",
+        a: "Our team speaks Swedish and English, as well as Tigrinya and Spanish — so more people can be understood in their own language.",
+      },
+      {
+        q: "Can I influence who visits and when?",
+        a: "Yes. We set up your care plan together with you and aim for consistent schedules with familiar faces. Needs change — and so do the services we provide.",
+      },
+      {
+        q: "Do you work under collective agreements?",
+        a: "Yes. We work under collective agreements with trained staff and a clear quality management system — for your peace of mind and our employees'.",
+      },
+    ],
     contactEyebrow: "Get in touch",
     contactTitle: "Let's talk about the care you need.",
     contactLead: "Call us, send an email or drop by our office on Brynäsgatan. We'll take the time to understand your situation and answer every question — no pressure.",
@@ -256,6 +316,7 @@ function Index() {
       <About t={t} />
       <Areas t={t} />
       <Jobs t={t} />
+      <Faq t={t} />
       <Contact t={t} />
       <Footer t={t} />
     </div>
@@ -300,6 +361,7 @@ function Nav({ t, lang, setLang }: { t: T; lang: Lang; setLang: (l: Lang) => voi
           <a href="#about" className="transition-colors hover:text-primary">{t.navAbout}</a>
           <a href="#areas" className="transition-colors hover:text-primary">{t.navAreas}</a>
           <a href="#jobs" className="transition-colors hover:text-primary">{t.navJobs}</a>
+          <a href="#faq" className="transition-colors hover:text-primary">{t.navFaq}</a>
           <a href="#contact" className="transition-colors hover:text-primary">{t.navContact}</a>
         </nav>
         <div className="flex items-center gap-3">
@@ -541,6 +603,36 @@ function Jobs({ t }: { t: T }) {
             <Mail className="h-4 w-4" />
             {t.jobsApplyCta}
           </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Faq({ t }: { t: T }) {
+  return (
+    <section id="faq" className="bg-surface py-24">
+      <div className="mx-auto max-w-3xl px-6">
+        <div className="text-center">
+          <span className="text-xs font-medium uppercase tracking-wider text-secondary">{t.faqEyebrow}</span>
+          <h2 className="mt-3 font-serif text-3xl leading-tight sm:text-4xl">{t.faqTitle}</h2>
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">{t.faqLead}</p>
+        </div>
+        <div className="mt-12 space-y-3">
+          {t.faqItems.map((item) => (
+            <details
+              key={item.q}
+              className="group rounded-2xl border border-border bg-card px-6 py-5 transition-colors open:bg-muted/40"
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg text-primary [&::-webkit-details-marker]:hidden">
+                {item.q}
+                <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-border text-muted-foreground transition-transform group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.a}</p>
+            </details>
+          ))}
         </div>
       </div>
     </section>
