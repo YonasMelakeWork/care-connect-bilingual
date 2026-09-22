@@ -316,6 +316,7 @@ function Index() {
       <About t={t} />
       <Areas t={t} />
       <Jobs t={t} />
+      <Faq t={t} />
       <Contact t={t} />
       <Footer t={t} />
     </div>
@@ -360,6 +361,7 @@ function Nav({ t, lang, setLang }: { t: T; lang: Lang; setLang: (l: Lang) => voi
           <a href="#about" className="transition-colors hover:text-primary">{t.navAbout}</a>
           <a href="#areas" className="transition-colors hover:text-primary">{t.navAreas}</a>
           <a href="#jobs" className="transition-colors hover:text-primary">{t.navJobs}</a>
+          <a href="#faq" className="transition-colors hover:text-primary">{t.navFaq}</a>
           <a href="#contact" className="transition-colors hover:text-primary">{t.navContact}</a>
         </nav>
         <div className="flex items-center gap-3">
@@ -601,6 +603,36 @@ function Jobs({ t }: { t: T }) {
             <Mail className="h-4 w-4" />
             {t.jobsApplyCta}
           </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Faq({ t }: { t: T }) {
+  return (
+    <section id="faq" className="bg-surface py-24">
+      <div className="mx-auto max-w-3xl px-6">
+        <div className="text-center">
+          <span className="text-xs font-medium uppercase tracking-wider text-secondary">{t.faqEyebrow}</span>
+          <h2 className="mt-3 font-serif text-3xl leading-tight sm:text-4xl">{t.faqTitle}</h2>
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">{t.faqLead}</p>
+        </div>
+        <div className="mt-12 space-y-3">
+          {t.faqItems.map((item) => (
+            <details
+              key={item.q}
+              className="group rounded-2xl border border-border bg-card px-6 py-5 transition-colors open:bg-muted/40"
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg text-primary [&::-webkit-details-marker]:hidden">
+                {item.q}
+                <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-border text-muted-foreground transition-transform group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.a}</p>
+            </details>
+          ))}
         </div>
       </div>
     </section>
