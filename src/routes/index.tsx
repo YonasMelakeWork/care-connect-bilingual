@@ -182,6 +182,18 @@ const content = {
     areasEyebrow: "Where we work",
     areasTitle: "Serving neighbourhoods across Gävle.",
     areasLead: "We're proud to provide home care throughout these areas of the city. Not sure if we cover your street? Give us a call.",
+    jobsEyebrow: "Work with us",
+    jobsTitle: "Join our team in Gävle.",
+    jobsLead:
+      "We're growing and always looking for people who share our view of what good care means — commitment and compassion matter more to us than experience.",
+    jobsBullets: [
+      { title: "Meaningful every day", body: "You make a real difference in people's lives — in their own homes, on their terms." },
+      { title: "Training & development", body: "We invest in your skills with regular training and clear paths to grow." },
+      { title: "Secure conditions", body: "Collective agreement, fair salary and a team that supports each other." },
+    ],
+    jobsApplyTitle: "Open application",
+    jobsApplyBody: "We always welcome open applications. Send us your CV and a few lines about yourself — we'll be in touch.",
+    jobsApplyCta: "Send your application",
     contactEyebrow: "Get in touch",
     contactTitle: "Let's talk about the care you need.",
     contactLead: "Call us, send an email or drop by our office on Brynäsgatan. We'll take the time to understand your situation and answer every question — no pressure.",
@@ -197,6 +209,7 @@ const content = {
 
 const serviceIcons = [HeartHandshake, Sparkles, UtensilsCrossed, Pill, ShoppingBasket, Users];
 const valueIcons = [ShieldCheck, Languages, Clock];
+const jobIcons = [HeartHandshake, GraduationCap, ShieldCheck];
 
 const areas = [
   "Andersberg–Stureborg",
@@ -218,6 +231,7 @@ function Index() {
       <Services t={t} />
       <About t={t} />
       <Areas t={t} />
+      <Jobs t={t} />
       <Contact t={t} />
       <Footer t={t} />
     </div>
@@ -261,6 +275,7 @@ function Nav({ t, lang, setLang }: { t: T; lang: Lang; setLang: (l: Lang) => voi
           <a href="#services" className="transition-colors hover:text-primary">{t.navServices}</a>
           <a href="#about" className="transition-colors hover:text-primary">{t.navAbout}</a>
           <a href="#areas" className="transition-colors hover:text-primary">{t.navAreas}</a>
+          <a href="#jobs" className="transition-colors hover:text-primary">{t.navJobs}</a>
           <a href="#contact" className="transition-colors hover:text-primary">{t.navContact}</a>
         </nav>
         <div className="flex items-center gap-3">
@@ -445,6 +460,49 @@ function Areas({ t }: { t: T }) {
             </li>
           ))}
         </ul>
+      </div>
+    </section>
+  );
+}
+
+function Jobs({ t }: { t: T }) {
+  return (
+    <section id="jobs" className="border-y border-border bg-background py-24">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="max-w-2xl">
+          <span className="text-xs font-medium uppercase tracking-wider text-secondary">{t.jobsEyebrow}</span>
+          <h2 className="mt-3 font-serif text-3xl leading-tight sm:text-4xl">{t.jobsTitle}</h2>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">{t.jobsLead}</p>
+        </div>
+        <div className="mt-12 grid gap-8 md:grid-cols-3">
+          {t.jobsBullets.map((b, i) => {
+            const Icon = jobIcons[i];
+            return (
+              <div key={b.title} className="flex gap-4">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-secondary/10 text-secondary">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <div>
+                  <h3 className="text-base font-semibold">{b.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{b.body}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-2xl border border-border bg-surface p-8 sm:flex-row sm:items-center">
+          <div>
+            <h3 className="font-serif text-xl text-primary">{t.jobsApplyTitle}</h3>
+            <p className="mt-1 text-sm text-muted-foreground">{t.jobsApplyBody}</p>
+          </div>
+          <a
+            href={`mailto:info@levandocare.se?subject=${encodeURIComponent(t.jobsApplyTitle)}`}
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-[color:var(--green-mid)]"
+          >
+            <Mail className="h-4 w-4" />
+            {t.jobsApplyCta}
+          </a>
+        </div>
       </div>
     </section>
   );
