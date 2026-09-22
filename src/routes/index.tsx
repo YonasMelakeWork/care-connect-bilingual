@@ -413,32 +413,35 @@ function Services({ t }: { t: T }) {
           <p className="max-w-md text-sm leading-relaxed text-muted-foreground">{t.servicesLead}</p>
         </div>
 
-        {t.serviceGroups.map((group) => (
-          <div key={group.title} className="mt-14">
-            <div className="max-w-2xl">
-              <h3 className="font-serif text-2xl text-primary">{group.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{group.lead}</p>
+        {t.serviceGroups.map((group, gi) => {
+          const offset = t.serviceGroups.slice(0, gi).reduce((n, g) => n + g.items.length, 0);
+          return (
+            <div key={group.title} className="mt-14">
+              <div className="max-w-2xl">
+                <h3 className="font-serif text-2xl text-primary">{group.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{group.lead}</p>
+              </div>
+              <div
+                className={`mt-6 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 ${
+                  group.items.length > 2 ? "lg:grid-cols-4" : "lg:grid-cols-2"
+                }`}
+              >
+                {group.items.map((s, i) => {
+                  const Icon = serviceIcons[offset + i];
+                  return (
+                    <article key={s.title} className="group flex flex-col gap-4 bg-card p-8 transition-colors hover:bg-muted/40">
+                      <span className="grid h-12 w-12 place-items-center rounded-full bg-primary/5 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                        <Icon className="h-5 w-5" />
+                      </span>
+                      <h4 className="font-serif text-xl text-primary">{s.title}</h4>
+                      <p className="text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+                    </article>
+                  );
+                })}
+              </div>
             </div>
-            <div
-              className={`mt-6 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 ${
-                group.items.length > 2 ? "lg:grid-cols-4" : "lg:grid-cols-2"
-              }`}
-            >
-              {group.items.map((s) => {
-                const Icon = serviceIcons.find((I) => I);
-                return (
-                  <article key={s.title} className="group flex flex-col gap-4 bg-card p-8 transition-colors hover:bg-muted/40">
-                    <span className="grid h-12 w-12 place-items-center rounded-full bg-primary/5 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    <h4 className="font-serif text-xl text-primary">{s.title}</h4>
-                    <p className="text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
