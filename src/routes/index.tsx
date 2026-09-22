@@ -90,13 +90,25 @@ const content = {
     statLanguages: "Språk",
     statAreas: "Områden",
     statBased: "Baserade i",
-    services: [
-      { title: "Personlig omvårdnad", body: "Omtänksam hjälp med hygien, påklädning och dagliga rutiner — med värdighet." },
-      { title: "Städning", body: "Regelbunden städning och tvätt så ditt hem förblir en lugn och trivsam plats." },
-      { title: "Måltider & näring", body: "Vi lagar näringsrika måltider tillsammans, anpassade efter dina önskemål och behov." },
-      { title: "Läkemedelsstöd", body: "Pålitliga påminnelser och säker hantering av ordinerade läkemedel enligt vårdplan." },
-      { title: "Ärenden & inköp", body: "Matinköp, apoteksbesök och vardagliga ärenden så inget viktigt missas." },
-      { title: "Sällskap", body: "Tid att prata, promenera och dela en kopp kaffe — närvaro är en del av god omsorg." },
+    serviceGroups: [
+      {
+        title: "Hemtjänst",
+        lead: "Omsorg och stöd i din vardag — personliga tjänster anpassade efter dina behov och önskemål.",
+        items: [
+          { title: "Personlig omvårdnad", body: "Omtänksam hjälp med hygien, påklädning och dagliga rutiner — med värdighet." },
+          { title: "Läkemedelsstöd", body: "Pålitliga påminnelser och säker hantering av ordinerade läkemedel enligt vårdplan." },
+          { title: "Måltider & näring", body: "Vi lagar näringsrika måltider tillsammans, anpassade efter dina önskemål och behov." },
+          { title: "Sällskap", body: "Tid att prata, promenera och dela en kopp kaffe — närvaro är en del av god omsorg." },
+        ],
+      },
+      {
+        title: "Hushållsnära tjänster",
+        lead: "Hjälp med hemmet och praktiska göromål, så att du orkar mer av det du tycker om.",
+        items: [
+          { title: "Städning", body: "Regelbunden städning och tvätt så ditt hem förblir en lugn och trivsam plats." },
+          { title: "Ärenden & inköp", body: "Matinköp, apoteksbesök och vardagliga ärenden så inget viktigt missas." },
+        ],
+      },
     ],
     values: [
       { title: "Kvalificerade & reglerade", body: "Utbildad personal som arbetar enligt kvalitetsledningssystem och kollektivavtal." },
@@ -156,13 +168,25 @@ const content = {
     statLanguages: "Languages",
     statAreas: "Areas served",
     statBased: "Based in",
-    services: [
-      { title: "Personal care", body: "Compassionate help with hygiene, dressing and everyday routines — delivered with dignity." },
-      { title: "Home cleaning", body: "Regular cleaning and laundry so your home stays a calm, comfortable place to live." },
-      { title: "Meals & nutrition", body: "Preparing balanced meals together, tailored to your preferences and dietary needs." },
-      { title: "Medication support", body: "Reliable reminders and safe handling of prescribed medication in line with care plans." },
-      { title: "Errands & shopping", body: "Grocery runs, pharmacy visits and everyday errands so nothing important gets missed." },
-      { title: "Companionship", body: "Time to talk, walk and share a coffee — because presence is part of good care." },
+    serviceGroups: [
+      {
+        title: "Home care",
+        lead: "Care and support in your daily life — personal services tailored to your needs and wishes.",
+        items: [
+          { title: "Personal care", body: "Compassionate help with hygiene, dressing and everyday routines — delivered with dignity." },
+          { title: "Medication support", body: "Reliable reminders and safe handling of prescribed medication in line with care plans." },
+          { title: "Meals & nutrition", body: "Preparing balanced meals together, tailored to your preferences and dietary needs." },
+          { title: "Companionship", body: "Time to talk, walk and share a coffee — because presence is part of good care." },
+        ],
+      },
+      {
+        title: "Household services",
+        lead: "Help around the home with practical tasks, so you have energy for the things you enjoy.",
+        items: [
+          { title: "Home cleaning", body: "Regular cleaning and laundry so your home stays a calm, comfortable place to live." },
+          { title: "Errands & shopping", body: "Grocery runs, pharmacy visits and everyday errands so nothing important gets missed." },
+        ],
+      },
     ],
     values: [
       { title: "Qualified & regulated", body: "Trained staff working to a quality management system and collective agreement." },
@@ -207,7 +231,7 @@ const content = {
   },
 };
 
-const serviceIcons = [HeartHandshake, Sparkles, UtensilsCrossed, Pill, ShoppingBasket, Users];
+const serviceIcons = [HeartHandshake, Pill, UtensilsCrossed, Users, Sparkles, ShoppingBasket];
 const valueIcons = [ShieldCheck, Languages, Clock];
 const jobIcons = [HeartHandshake, GraduationCap, ShieldCheck];
 
@@ -389,20 +413,32 @@ function Services({ t }: { t: T }) {
           <p className="max-w-md text-sm leading-relaxed text-muted-foreground">{t.servicesLead}</p>
         </div>
 
-        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-          {t.services.map((s, i) => {
-            const Icon = serviceIcons[i];
-            return (
-              <article key={s.title} className="group flex flex-col gap-4 bg-card p-8 transition-colors hover:bg-muted/40">
-                <span className="grid h-12 w-12 place-items-center rounded-full bg-primary/5 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <h3 className="font-serif text-xl text-primary">{s.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-              </article>
-            );
-          })}
-        </div>
+        {t.serviceGroups.map((group) => (
+          <div key={group.title} className="mt-14">
+            <div className="max-w-2xl">
+              <h3 className="font-serif text-2xl text-primary">{group.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{group.lead}</p>
+            </div>
+            <div
+              className={`mt-6 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 ${
+                group.items.length > 2 ? "lg:grid-cols-4" : "lg:grid-cols-2"
+              }`}
+            >
+              {group.items.map((s) => {
+                const Icon = serviceIcons.find((I) => I);
+                return (
+                  <article key={s.title} className="group flex flex-col gap-4 bg-card p-8 transition-colors hover:bg-muted/40">
+                    <span className="grid h-12 w-12 place-items-center rounded-full bg-primary/5 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <h4 className="font-serif text-xl text-primary">{s.title}</h4>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
