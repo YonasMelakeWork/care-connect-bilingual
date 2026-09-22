@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
+  GraduationCap,
   HeartHandshake,
   Sparkles,
   UtensilsCrossed,
@@ -76,6 +77,7 @@ const content = {
     navServices: "Tjänster",
     navAbout: "Om oss",
     navAreas: "Områden",
+    navJobs: "Jobba hos oss",
     navContact: "Kontakt",
     contactButton: "Kontakta oss",
     call: "Ring",
@@ -114,6 +116,18 @@ const content = {
     areasEyebrow: "Där vi arbetar",
     areasTitle: "Vi finns i stadsdelar i hela Gävle.",
     areasLead: "Vi är stolta över att erbjuda hemtjänst i dessa områden. Osäker på om vi täcker din gata? Ring oss.",
+    jobsEyebrow: "Jobba hos oss",
+    jobsTitle: "Bli en del av vårt team i Gävle.",
+    jobsLead:
+      "Vi växer och söker alltid personer som delar vår syn på vad god omsorg är — engagemang och omtanke betyder mer för oss än erfarenhet.",
+    jobsBullets: [
+      { title: "Meningsfullt varje dag", body: "Du gör verklig skillnad i människors liv — i deras egna hem, på deras villkor." },
+      { title: "Utbildning & utveckling", body: "Vi investerar i din kompetens med regelbunden utbildning och tydliga utvecklingsvägar." },
+      { title: "Trygga villkor", body: "Kollektivavtal, fast lön och ett team som stöttar varandra." },
+    ],
+    jobsApplyTitle: "Spontanansökan",
+    jobsApplyBody: "Vi tar alltid emot spontansökningar. Skicka ditt CV och några rader om dig själv — vi hör av oss.",
+    jobsApplyCta: "Skicka din ansökan",
     contactEyebrow: "Kontakt",
     contactTitle: "Låt oss prata om den omsorg du behöver.",
     contactLead: "Ring, mejla eller kom förbi vårt kontor på Brynäsgatan. Vi tar oss tid att förstå din situation och svara på alla frågor — utan påtryckningar.",
@@ -129,6 +143,7 @@ const content = {
     navServices: "Services",
     navAbout: "About",
     navAreas: "Areas",
+    navJobs: "Careers",
     navContact: "Contact",
     contactButton: "Contact us",
     call: "Call",
